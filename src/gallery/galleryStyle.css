@@ -1,0 +1,25 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    margin: 4px 80px;
+}
+
+.gallery-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+}
+
+.gallery-section-title {
+    display: flex;
+    align-items: center;
+
+}
+
+.gallery-section-row {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+
+}

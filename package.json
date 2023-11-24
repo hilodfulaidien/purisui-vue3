@@ -1,0 +1,26 @@
+{
+  "name": "purisui-vue3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@floating-ui/vue": "^1.0.2",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@iconify/vue": "^4.1.1",
+    "@pandacss/dev": "^0.17.0",
+    "@types/node": "^20.8.7",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue-tsc": "^1.8.5"
+  }
+}
