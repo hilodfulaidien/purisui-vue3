@@ -1,11 +1,11 @@
 <template >
-    <span :class="iconWrapperMergeClass" :style="iconWrapperStyle">
+    <span :class="iconWrapperMergeClass">
         <slot />
     </span>
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, inject } from "vue";
+import { inject } from "vue";
 import { cx } from "../../../styled-system/css";
 import { configInjectKey } from "../_common/keys";
 
@@ -14,15 +14,12 @@ export interface IconWrapperProps {
     iconOnly?: boolean,
     iconPosition?: 'before' | 'after',
     disabled?: boolean,
-    className?: string,
-    style?: CSSProperties
 }
 
 const props = withDefaults(defineProps<IconWrapperProps>(), {
     size: 'medium',
     iconOnly: false,
     disabled: false,
-    className: "",
 })
 
 // ===============================================
@@ -41,7 +38,4 @@ if (props.disabled) {
     iconWrapperMergeClass = cx(iconWrapperMergeClass, iconDisabledClass)
 }
 
-iconWrapperMergeClass = cx(iconWrapperMergeClass, props.className);
-
-let iconWrapperStyle = { ...props.style }
 </script>

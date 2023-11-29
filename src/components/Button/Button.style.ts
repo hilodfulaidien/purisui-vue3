@@ -176,7 +176,10 @@ const root = cva({
       size: "small",
       iconOnly: true,
       css: {
+        // 原本 padding 是左右大，上下小，iconOnly 则全部都是小
         padding: "1",
+        // 设置与 height 一致，避免 icon 过大时，宽度被推宽。
+        // 因为做动画时，有可能 overflow 隐藏，然后 tanslateX
         width: "6",
       },
     },

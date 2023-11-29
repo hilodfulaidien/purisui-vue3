@@ -1,17 +1,19 @@
 import BadgeStyle from "../Badge/Badge.style";
 import ButtonStyle from "../Button/Button.style";
+import DropdownMenuStyle from "../DropdownMenu/DropdownMenu.style";
+import DropdownMenuItemStyle from "../DropdownMenu/DropdownMenuItem.style";
+import DropdownMenuItemCheckboxStyle from "../DropdownMenu/DropdownMenuItemCheckbox.style";
 import IconWrapperStyle from "../Icon/IconWrapper.style";
-import MenuStyle from "../Menu/Menu.style";
-import MenuItemStyle from "../Menu/MenuItem.style";
+
 
 export const defaultLightTheme = {
   buttonStyle: ButtonStyle,
   badgeStyle: BadgeStyle,
   avatarStyle: {},
   iconWrapperStyle: IconWrapperStyle,
-  menuStyle: MenuStyle,
-  menuItemStyle: MenuItemStyle,
-
+  dropdownMenuStyle: DropdownMenuStyle,
+  dropdownMenuItemStyle: DropdownMenuItemStyle,
+  dropdownMenuItemCheckboxStyle: DropdownMenuItemCheckboxStyle,
 };
 
 export type Theme = typeof defaultLightTheme;

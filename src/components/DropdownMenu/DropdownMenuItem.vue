@@ -1,5 +1,5 @@
 <template>
-    <div :class="rootMergeClass" :style="rootStyle">
+    <div :class="rootMergeClass" @click="props.onClick">
         <span v-if="hasCheckmark" :class="checkmarkClass">
 
         </span>
@@ -23,21 +23,19 @@
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, inject, useSlots } from "vue";
-import { cx } from '../../../styled-system/css';
-import IconWrapper from '@/components/Icon/IconWrapper.vue'
+import { inject, useSlots } from "vue";
+import IconWrapper from "../Icon/IconWrapper.vue";
 import { configInjectKey, menuInjectKey } from "../_common/keys";
 
 
-export interface MenuItemProps {
+export interface DropdownMenuItemProps {
     disabled?: boolean;
     size?: 'small' | 'medium' | 'large';
     shape?: 'rounded' | "square";
-    className?: string;
-    style?: CSSProperties;
+    onClick?: (e: MouseEvent) => void;
 }
 
-const props = withDefaults(defineProps<MenuItemProps>(), {
+const props = withDefaults(defineProps<DropdownMenuItemProps>(), {
     disabled: false,
     size: 'medium',
     shape: 'rounded',
@@ -53,22 +51,19 @@ if (!!slots.icon) {
 
 const configInject = inject(configInjectKey)!;
 
-let rootMergeClass = configInject.theme.menuItemStyle.root({
+let rootMergeClass = configInject.theme.dropdownMenuItemStyle.root({
     shape: props.shape,
     size: props.size,
 })
 
-const checkmarkClass = configInject.theme.menuItemStyle.checkmark({
+const checkmarkClass = configInject.theme.dropdownMenuItemStyle.checkmark({
     size: props.size
 });
 
-const contentClass = configInject.theme.menuItemStyle.content();
+const contentClass = configInject.theme.dropdownMenuItemStyle.content();
 
-const shortcutClass = configInject.theme.menuItemStyle.shortcut();
+const shortcutClass = configInject.theme.dropdownMenuItemStyle.shortcut();
 
-const indicatorClass = configInject.theme.menuItemStyle.indicator({ size: props.size });
+const indicatorClass = configInject.theme.dropdownMenuItemStyle.indicator({ size: props.size });
 
-rootMergeClass = cx(rootMergeClass, props.className)
-
-let rootStyle = { ...props.style }
 </script>

@@ -1,9 +1,9 @@
 <template>
-    <svg :class="iconMergeClass" v-if="isLocal" aria-hidden="true" width="1em" height="1em" :style="iconStyle">
+    <svg v-if="isLocal" aria-hidden="true" width="1em" height="1em" >
         <use :xlink:href="symbolId" />
     </svg>
 
-    <Icon :class="iconMergeClass" v-else :icon="icon" :style="iconStyle" />
+    <Icon v-else :icon="icon" />
 </template>
 
 <script setup lang="ts">
@@ -21,7 +21,6 @@ export interface IconProps {
 }
 
 const props = withDefaults(defineProps<IconProps>(), {
-    className: ""
 })
 
 // ===============================================
@@ -31,9 +30,5 @@ const isLocal = computed(() => props.icon.startsWith('local-svg:'))
 const symbolId = computed(() => {
     return unref(isLocal) ? `#icon-${props.icon.split('local-svg:')[1]}` : props.icon
 })
-
-let iconStyle = { ...props.style }
-
-let iconMergeClass = props.className;
 
 </script>

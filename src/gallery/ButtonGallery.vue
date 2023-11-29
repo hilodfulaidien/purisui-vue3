@@ -62,7 +62,8 @@
         <div class="gallery-section">
             <div class="gallery-section-title">Appearance</div>
             <div class="gallery-section-row">
-                <Button size="medium" appearance="primary">Primary</Button>
+                <Button size="medium" appearance="primary" >
+                    Primary</Button>
                 <Button size="medium" appearance="outline">Outline</Button>
                 <Button size="medium" appearance="subtle">Subtle</Button>
                 <Button size="medium" appearance="transparent">Transparent</Button>

@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 import { CSSProperties, computed, inject } from "vue";
-import { cx } from '../../../styled-system/css';
 import { configInjectKey } from "../_common/keys";
 
 export interface BadgeProps {
@@ -33,8 +32,6 @@ export interface BadgeProps {
     dot?: boolean;
     placement?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
     offset?: [vAxis: number, hAxis: number];
-    className?: string;
-    style?: CSSProperties;
 }
 
 const props = withDefaults(defineProps<BadgeProps>(), {
@@ -100,8 +97,6 @@ let textWrapperStyleComputed = computed(() => {
     }
 })
 
-
-
 // ==============================================
 
 const textComputed = computed(() => {
@@ -114,7 +109,5 @@ const textComputed = computed(() => {
         return props.text
     }
 })
-
-outWrapperMergeClass = cx(outWrapperMergeClass, props.className)
 
 </script>
